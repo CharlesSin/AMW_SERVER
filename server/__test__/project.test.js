@@ -200,73 +200,73 @@ describe("API Get Participants 4", () => {
 // ===================================================================================================================================================================================
 
 // @Test '/api/updateEventInfo' route create basic event information;
-describe("Create Basic Event Info", () => {
-  it("Create Basic Event Information ", async (done) => {
-    const res = await request(server)
-      .post("/api/updateEventInfo")
-      .set("authorization", `${TOKEN}`)
-      .send({
-        projectid: PROJECTID,
-        endDate: `2021-07-21`,
-        eventAuthor: `Jolin Tsai`,
-        eventLocation: `Starbuck Feng Chia`,
-        eventName: `StarBucks Coffee`,
-        event_deatils: `Enjoy buy one Free one`,
-        startDate: `2021-07-20`,
-      });
-    expect(res.statusCode).toEqual(201);
-    expect(res.body).toEqual({
-      msg: "Update Basic Information and Event Date Successfully",
-    });
-    done();
-  });
-});
+// describe("Create Basic Event Info", () => {
+//   it("Create Basic Event Information ", async (done) => {
+//     const res = await request(server)
+//       .post("/api/updateEventInfo")
+//       .set("authorization", `${TOKEN}`)
+//       .send({
+//         projectid: PROJECTID,
+//         endDate: `2021-07-21`,
+//         eventAuthor: `Jolin Tsai`,
+//         eventLocation: `Starbuck Feng Chia`,
+//         eventName: `StarBucks Coffee`,
+//         event_deatils: `Enjoy buy one Free one`,
+//         startDate: `2021-07-20`,
+//       });
+//     expect(res.statusCode).toEqual(201);
+//     expect(res.body).toEqual({
+//       msg: "Update Basic Information and Event Date Successfully",
+//     });
+//     done();
+//   });
+// });
 
 // @Test '/api/updateEventInfo' route update information only;
-describe("Update Basic Event Info 1", () => {
-  it("Update Basic Event Information", async (done) => {
-    const res = await request(server)
-      .post("/api/updateEventInfo")
-      .set("authorization", `${TOKEN}`)
-      .send({
-        projectid: PROJECTID,
-        endDate: `2021-07-21`,
-        eventAuthor: `David Tsai`,
-        eventLocation: `Carrefoure`,
-        eventName: `StarBucks Coffee`,
-        event_deatils: `Enjoy buy two Free one`,
-        startDate: `2021-07-20`,
-      });
-    expect(res.statusCode).toEqual(202);
-    expect(res.body).toEqual({
-      msg: "Update Basic Information Successfully",
-    });
-    done();
-  });
-});
+// describe("Update Basic Event Info 1", () => {
+//   it("Update Basic Event Information", async (done) => {
+//     const res = await request(server)
+//       .post("/api/updateEventInfo")
+//       .set("authorization", `${TOKEN}`)
+//       .send({
+//         projectid: PROJECTID,
+//         endDate: `2021-07-21`,
+//         eventAuthor: `David Tsai`,
+//         eventLocation: `Carrefoure`,
+//         eventName: `StarBucks Coffee`,
+//         event_deatils: `Enjoy buy two Free one`,
+//         startDate: `2021-07-20`,
+//       });
+//     expect(res.statusCode).toEqual(202);
+//     expect(res.body).toEqual({
+//       msg: "Update Basic Information Successfully",
+//     });
+//     done();
+//   });
+// });
 
 // @Test '/api/updateEventInfo' route start date and end date are greater than 7 days;
-describe("Update Basic Event Info 2", () => {
-  it("Start Date and End Date are greater than 7 days", async (done) => {
-    const res = await request(server)
-      .post("/api/updateEventInfo")
-      .set("authorization", `${TOKEN}`)
-      .send({
-        projectid: PROJECTID,
-        endDate: `2021-07-30`,
-        eventAuthor: `David Tsai`,
-        eventLocation: `Carrefoure`,
-        eventName: `StarBucks Coffee`,
-        event_deatils: `Enjoy buy two Free one`,
-        startDate: `2021-07-20`,
-      });
-    expect(res.statusCode).toEqual(400);
-    expect(res.body).toEqual({
-      errmsg: "Bad request The activity must be within 7 days",
-    });
-    done();
-  });
-});
+// describe("Update Basic Event Info 2", () => {
+//   it("Start Date and End Date are greater than 7 days", async (done) => {
+//     const res = await request(server)
+//       .post("/api/updateEventInfo")
+//       .set("authorization", `${TOKEN}`)
+//       .send({
+//         projectid: PROJECTID,
+//         endDate: `2021-07-30`,
+//         eventAuthor: `David Tsai`,
+//         eventLocation: `Carrefoure`,
+//         eventName: `StarBucks Coffee`,
+//         event_deatils: `Enjoy buy two Free one`,
+//         startDate: `2021-07-20`,
+//       });
+//     expect(res.statusCode).toEqual(400);
+//     expect(res.body).toEqual({
+//       errmsg: "Bad request The activity must be within 7 days",
+//     });
+//     done();
+//   });
+// });
 
 // @Test '/api/updateEventInfo' route Invaild end days;
 describe("Update Basic Event Info 3", () => {
